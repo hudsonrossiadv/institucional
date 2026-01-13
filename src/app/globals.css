@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  --font-serif: "Playfair Display", "Georgia", serif;
+
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(213 27% 12%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(213 27% 12%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(213 27% 12%);
+
+  --color-primary: hsl(213 94% 16%);
+  --color-primary-foreground: hsl(0 0% 98%);
+
+  --color-secondary: hsl(210 11% 96%);
+  --color-secondary-foreground: hsl(213 27% 12%);
+
+  --color-muted: hsl(210 11% 96%);
+  --color-muted-foreground: hsl(213 19% 44%);
+
+  --color-accent: hsl(43 89% 70%);
+  --color-accent-foreground: hsl(213 27% 12%);
+
+  --color-border: hsl(210 18% 91%);
+  --color-input: hsl(210 18% 91%);
+  --color-ring: hsl(213 94% 16%);
+
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+
+  --radius: 0.5rem;
+
+  --color-sidebar-background: hsl(0 0% 98%);
+  --color-sidebar-foreground: hsl(240 5.3% 26.1%);
+  --color-sidebar-primary: hsl(240 5.9% 10%);
+  --color-sidebar-primary-foreground: hsl(0 0% 98%);
+  --color-sidebar-accent: hsl(240 4.8% 95.9%);
+  --color-sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --color-sidebar-border: hsl(220 13% 91%);
+  --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+  --color-gradient-from: hsl(210 20% 98%);
+  --color-gradient-to: hsl(210 23% 96%);
+}
+
+[data-theme="dark"] {
+  /* Tipografia */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  --font-serif: "Playfair Display", "Georgia", serif;
+
+  --color-background: hsl(213 27% 8%);
+  --color-foreground: hsl(0 0% 98%);
+
+  --color-card: hsl(213 27% 10%);
+  --color-card-foreground: hsl(0 0% 98%);
+
+  --color-popover: hsl(213 27% 10%);
+  --color-popover-foreground: hsl(0 0% 98%);
+
+  --color-primary: hsl(43 89% 70%);
+  --color-primary-foreground: hsl(213 27% 8%);
+
+  --color-secondary: hsl(213 27% 14%);
+  --color-secondary-foreground: hsl(0 0% 98%);
+
+  --color-muted: hsl(213 27% 14%);
+  --color-muted-foreground: hsl(213 19% 65%);
+
+  --color-accent: hsl(43 89% 70%);
+  --color-accent-foreground: hsl(213 27% 8%);
+
+  --color-destructive: hsl(0 62.8% 30.6%);
+  --color-destructive-foreground: hsl(210 40% 98%);
+
+  --color-border: hsl(213 27% 18%);
+  --color-input: hsl(213 27% 18%);
+  --color-ring: hsl(43 89% 70%);
+
+  --color-sidebar-background: hsl(240 5.9% 10%);
+  --color-sidebar-foreground: hsl(240 4.8% 95.9%);
+  --color-sidebar-primary: hsl(224.3 76.3% 48%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(240 3.7% 15.9%);
+  --color-sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --color-sidebar-border: hsl(240 3.7% 15.9%);
+  --color-sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+  --color-gradient-from: hsl(222 63% 8%);
+  --color-gradient-to: hsl(222 44% 15%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
