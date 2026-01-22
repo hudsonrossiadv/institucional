@@ -54,20 +54,23 @@ const About = () => {
                 Quem Somos
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                O Hudson Rossi Advocacia é um escritório jurídico sediado em
-                Ariquemes, Rondônia, que atua na prestação de serviços jurídicos
-                de forma técnica, estratégica e personalizada.
+                Meu nome é Hudson Rossi. Concluí o ensino médio no IFRO, com
+                formação em Tecnologia da Informação, e me graduei em Direito
+                pela FAAr, tendo parte da minha formação realizada na UNIGRAN,
+                em Dourados/MS. Durante esse período, vivi por cerca de dois
+                anos e meio na cidade, retornando a Ariquemes durante a
+                pandemia, onde finalizei o curso.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                O escritório atende pessoas físicas e jurídicas, com atuação
-                voltada tanto à consultoria jurídica preventiva quanto à defesa
-                contenciosa, em demandas administrativas e judiciais, sempre com
-                foco na segurança jurídica, na proteção do patrimônio e na
-                solução adequada dos conflitos.
+                Decidi me tornar advogado com o propósito de defender pessoas
+                que precisam de um apoio sério e responsável, tratando cada caso
+                como único.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Cada caso é tratado de forma individualizada, respeitando suas
-                particularidades jurídicas, econômicas e humanas.
+                O Hudson Rossi Advocacia, sediado em Ariquemes/RO, atende
+                pessoas físicas e jurídicas, atuando de forma preventiva e
+                contenciosa, sempre com clareza, atenção e compromisso com o
+                cliente.
               </p>
             </motion.div>
             <motion.div
@@ -166,10 +169,14 @@ const About = () => {
               </div>
               <div className="bg-primary/5 rounded-xl p-8">
                 <blockquote className="text-lg italic text-foreground leading-relaxed">
-                  "A atuação do Hudson Rossi Advocacia é pautada por método,
-                  técnica e transparência. O objetivo é oferecer ao cliente
-                  previsibilidade, segurança e confiança durante toda a condução
-                  da demanda."
+                  "Oi! Eu sou o Hudson Rossi, advogado. Trabalho de forma direta
+                  e próxima do cliente, sempre explicando tudo de um jeito
+                  simples e sem complicação. Atuo nas áreas de Direito Agrário e
+                  Ambiental, Direito Tributário e Direito Empresarial. Meu
+                  atendimento é individual, com transparência e dedicação. Aqui
+                  você não é só mais um processo — meu objetivo é encontrar a
+                  melhor solução para o seu caso, com responsabilidade e
+                  respeito."
                 </blockquote>
                 <footer className="mt-4 text-right">
                   <cite className="text-primary font-semibold">

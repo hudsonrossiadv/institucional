@@ -34,7 +34,7 @@ const Bio = () => {
     {
       icon: Phone,
       title: "Telefone",
-      description: "(69) 9948-9259",
+      description: "(69) 99948-9259",
       url: "tel:+556999489259",
       color: "bg-purple-500 hover:bg-purple-600",
     },

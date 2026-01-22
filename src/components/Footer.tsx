@@ -1,3 +1,6 @@
+"use client"
+
+import { TiktokLogoIcon } from "@phosphor-icons/react"
 import {
   Facebook,
   Instagram,
@@ -29,22 +32,18 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://www.tiktok.com/@hudsonrossi.advogado"
+                target="_blank"
                 className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-accent transition-colors"
               >
-                <Linkedin className="h-5 w-5" />
+                <TiktokLogoIcon className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/hudsonrossi.adv/"
+                target="_blank"
                 className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-accent transition-colors"
               >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-accent transition-colors"
-              >
-                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -163,7 +162,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <div>
-                  <div>(69) 9948-9259</div>
+                  <div>(69) 99948-9259</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">

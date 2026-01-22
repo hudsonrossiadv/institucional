@@ -24,7 +24,7 @@ const Contato = () => {
   const [success, setSuccess] = useState<null | boolean>(null)
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setForm({ ...form, [e.target.id]: e.target.value })
   }
@@ -296,13 +296,13 @@ const Contato = () => {
                       <div className="flex items-center space-x-3">
                         <Phone className="h-5 w-5 text-accent" />
                         <span className="text-foreground font-medium">
-                          (69) 9948-9259
+                          (69) 99948-9259
                         </span>
                       </div>
                       <div className="flex items-center space-x-3">
                         <Mail className="h-5 w-5 text-accent" />
                         <span className="text-foreground font-medium">
-                          urgencia@hudsonrossi.com
+                          hudsonrossi.adv@gmail.com
                         </span>
                       </div>
                     </div>
