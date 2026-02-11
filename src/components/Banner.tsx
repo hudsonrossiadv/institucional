@@ -82,7 +82,7 @@ const Banner = () => {
             <div className="relative w-full max-w-md">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-card">
                 <Image
-                  src="/imagessera/eu.simples.png"
+                  src="/imagessera/eu.simples.PNG"
                   alt="Hudson Rossi - Advocacia"
                   width={645}
                   height={805}
