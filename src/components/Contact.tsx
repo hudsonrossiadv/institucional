@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label"
 import { motion } from "framer-motion"
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react"
 
+const DISCORD_WEBHOOK = process.env.NEXT_PUBLIC_DISCORD_WEBHOOK || ""
+
 /**
  * Componente de contato.
  *
@@ -32,7 +34,7 @@ const Contact = () => {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     setForm({ ...form, [e.target.id]: e.target.value })
   }
@@ -45,14 +47,13 @@ const Contact = () => {
     try {
       const content = `📩 **Novo formulário recebido!**\n\n**Nome:** ${form.nome}\n**Telefone:** ${form.telefone}\n**Email:** ${form.email}\n**Assunto:** ${form.assunto}\n**Mensagem:**\n${form.mensagem}`
 
-      // Envia via FormData para suportar anexos (opcional).
       const fd = new FormData()
       fd.append("content", content)
       if (files && files.length > 0) {
         Array.from(files).forEach((file) => fd.append("files", file))
       }
 
-      const res = await fetch("/api/contact", {
+      const res = await fetch(DISCORD_WEBHOOK, {
         method: "POST",
         body: fd,
       })
@@ -117,7 +118,8 @@ const Contact = () => {
               Descreva melhor o seu caso
             </CardTitle>
             <p className="text-muted-foreground">
-              Preencha o formulário abaixo e entraremos em contato em até 24 horas.
+              Preencha o formulário abaixo e entraremos em contato em até 24
+              horas.
             </p>
           </CardHeader>
           <CardContent>
@@ -196,7 +198,8 @@ const Contact = () => {
                   onChange={(e) => setFiles(e.target.files)}
                 />
                 <p className="text-xs text-muted-foreground">
-                  Você pode anexar fotos ou PDF. Se preferir, envie pelo WhatsApp.
+                  Você pode anexar fotos ou PDF. Se preferir, envie pelo
+                  WhatsApp.
                 </p>
               </div>
 
