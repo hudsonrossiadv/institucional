@@ -25,14 +25,11 @@ const Contact = () => {
     assunto: "",
     mensagem: "",
   })
-  const [files, setFiles] = useState<FileList | null>(null)
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState<null | boolean>(null)
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm({ ...form, [e.target.id]: e.target.value })
   }
@@ -45,16 +42,11 @@ const Contact = () => {
     try {
       const content = `📩 **Novo formulário recebido!**\n\n**Nome:** ${form.nome}\n**Telefone:** ${form.telefone}\n**Email:** ${form.email}\n**Assunto:** ${form.assunto}\n**Mensagem:**\n${form.mensagem}`
 
-      // Envia via FormData para suportar anexos (opcional).
-      const fd = new FormData()
-      fd.append("content", content)
-      if (files && files.length > 0) {
-        Array.from(files).forEach((file) => fd.append("files", file))
-      }
-
+      // envia a mensagem para a API interna; o backend lida com o webhook
       const res = await fetch("/api/contact", {
         method: "POST",
-        body: fd,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content }),
       })
 
       if (res.ok) {
@@ -66,7 +58,6 @@ const Contact = () => {
           assunto: "",
           mensagem: "",
         })
-        setFiles(null)
       } else {
         setSuccess(false)
       }
@@ -77,21 +68,13 @@ const Contact = () => {
     }
   }
 
+  // A lista de informações de contato exibe apenas os itens relevantes.
+  // Removemos as entradas de endereço e e-mail a pedido do usuário.
   const contactInfo = [
-    {
-      icon: MapPin,
-      title: "Endereço",
-      content: "Rua Amapá, nº 2539\nAriquemes/RO\nCEP: 76.870-726",
-    },
     {
       icon: Phone,
       title: "WhatsApp",
       content: "(69) 9 9948-9259\nAtendimento via WhatsApp",
-    },
-    {
-      icon: Mail,
-      title: "E-mail",
-      content: "hudsonrossi.adv@gmail.com\nRetorno em até 24 horas",
     },
     {
       icon: Clock,
@@ -114,7 +97,7 @@ const Contact = () => {
         <Card className="border-0 shadow-xl">
           <CardHeader>
             <CardTitle className="text-2xl font-serif text-foreground">
-              Descreva melhor o seu caso
+              Envie sua Mensagem
             </CardTitle>
             <p className="text-muted-foreground">
               Preencha o formulário abaixo e entraremos em contato em até 24 horas.
@@ -155,49 +138,22 @@ const Contact = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="assunto">Assunto *</Label>
-                <select
+                <Label htmlFor="assunto">Assunto</Label>
+                <Input
                   id="assunto"
                   value={form.assunto}
                   onChange={handleChange}
-                  required
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                >
-                  <option value="" disabled>
-                    Selecione um assunto...
-                  </option>
-                  <option value="Ambiental & Agrário (Produtor Rural)">
-                    Ambiental & Agrário (Produtor Rural)
-                  </option>
-                  <option value="Defesa em Busca e Apreensão">
-                    Defesa em Busca e Apreensão
-                  </option>
-                  <option value="Outros">Outros</option>
-                </select>
+                />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="mensagem">Descreva seu caso *</Label>
+                <Label htmlFor="mensagem">Mensagem *</Label>
                 <Textarea
                   id="mensagem"
                   value={form.mensagem}
                   onChange={handleChange}
                   required
                 />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="anexos">Anexos (opcional)</Label>
-                <Input
-                  id="anexos"
-                  type="file"
-                  multiple
-                  accept="image/*,application/pdf"
-                  onChange={(e) => setFiles(e.target.files)}
-                />
-                <p className="text-xs text-muted-foreground">
-                  Você pode anexar fotos ou PDF. Se preferir, envie pelo WhatsApp.
-                </p>
               </div>
 
               <Button

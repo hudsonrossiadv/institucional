@@ -39,18 +39,16 @@ const Header = () => {
   // Lista de áreas disponíveis. Cada item deve ter um título e um identificador
   // que corresponde à âncora na página de áreas. A nova área de defesa contra
   // busca e apreensão foi adicionada ao final da lista.
-  // Navegação simplificada: apenas 2 nichos/LPs, conforme solicitado.
-  const areas: Array<{ title: string; id: string; href: string }> = [
-    {
-      title: "Ambiental & Agrário (Produtor Rural)",
-      id: "ambiental-agrario",
-      href: "/ambiental-agrario",
-    },
-    {
-      title: "Defesa em Busca e Apreensão",
-      id: "defesa-busca-e-apreensao",
-      href: "/dba",
-    },
+  const areas = [
+    { title: "Direito Empresarial", id: "direito-empresarial" },
+    { title: "Direito Contratual", id: "direito-contratual" },
+    { title: "Direito Civil", id: "direito-civil" },
+    { title: "Direito Imobiliário", id: "direito-imobiliario" },
+    { title: "Direito do Trabalho", id: "direito-trabalho" },
+    { title: "Direito Tributário", id: "direito-tributario" },
+    // Nova área focada em defesa contra busca e apreensão de veículos
+    // Incluímos a propriedade href para direcionar à landing page /dba
+    { title: "Defesa em Busca e Apreensão", id: "defesa-busca-e-apreensao", href: "/dba" },
   ]
 
   return (
@@ -86,10 +84,16 @@ const Header = () => {
 
             {dropdownOpen && (
               <div className="absolute top-full left-0 mt-2 w-56 bg-background border border-border rounded-md shadow-lg z-50">
+                <a
+                  href="/areas"
+                  className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                >
+                  Ver Todas as Áreas
+                </a>
                 {areas.map((area) => (
                   <a
                     key={area.id}
-                    href={area.href}
+                    href={area.href ?? `/areas#${area.id}`}
                     className="block px-4 py-2 text-sm text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
                   >
                     {area.title}

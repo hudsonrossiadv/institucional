@@ -1,111 +1,125 @@
 "use client"
 
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { motion } from "framer-motion"
-import { FileText, CheckCircle, ArrowRight, Phone } from "lucide-react"
+import { ArrowRight, CheckCircle2, FileText, MessageCircle } from "lucide-react"
 
-const DireitoContratual = () => {
+const whatsappLink =
+  "https://wa.me/556999489259?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20em%20Direito%20Contratual.%20Podemos%20conversar%3F"
+
+export default function DireitoContratualPage() {
   const services = [
-    "Elaboração de contratos sob medida",
-    "Revisão e análise de riscos contratuais",
-    "Negociação de termos e condições",
-    "Contratos de prestação de serviços",
-    "Contratos de fornecimento e distribuição",
-    "Parcerias comerciais e joint ventures",
-    "Contratos internacionais",
-    "Resolução de conflitos contratuais",
+    "Elaboração e revisão de contratos",
+    "Negociação e adequação de cláusulas (prazo, multa, garantias)",
+    "Rescisão contratual com segurança jurídica",
+    "Renegociação de condições e acordos",
+    "Gestão de riscos contratuais (prevenção de litígios)",
   ]
 
-  const benefits = [
+  const faqs = [
     {
-      title: "Prevenção de Conflitos",
-      description:
-        "Contratos bem elaborados evitam 90% dos conflitos comerciais futuros.",
+      q: "Preciso revisar um contrato curto?",
+      a: "Sim. Um contrato pequeno pode conter cláusulas de multa, garantias e obrigações que geram grande impacto financeiro.",
     },
     {
-      title: "Proteção Jurídica",
-      description:
-        "Cláusulas específicas que protegem seus interesses em todas as situações.",
+      q: "Dá para mudar um contrato já assinado?",
+      a: "Em muitos casos, sim — por renegociação, aditivo, ou revisão judicial quando houver abusividade ou desequilíbrio.",
     },
     {
-      title: "Economia de Recursos",
-      description:
-        "Investimento em prevenção é sempre menor que custos de litígio.",
+      q: "Quanto antes eu procurar?",
+      a: "O ideal é antes de assinar. Quando já existe conflito, agir rápido ajuda a preservar prova e reduzir prejuízos.",
     },
   ]
 
   return (
     <div className="min-h-screen">
       <main className="pt-20">
-        {/* Hero Section */}
         <motion.section
-          className="bg-gradient-to-br from-primary/5 to-accent/5 py-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          className="py-14 bg-gradient-to-br from-primary/5 to-accent/5"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
         >
           <div className="container mx-auto px-4">
-            <motion.div
-              className="max-w-4xl mx-auto text-center"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="flex justify-center mb-6">
-                <div className="p-4 bg-primary/10 rounded-2xl">
-                  <FileText className="h-16 w-16 text-primary" />
-                </div>
+            <div className="max-w-4xl mx-auto text-center space-y-5">
+              <div className="inline-flex items-center justify-center p-3 bg-accent/10 rounded-2xl">
+                <FileText className="h-10 w-10 text-accent" />
               </div>
-              <h1 className="text-5xl font-serif font-bold text-foreground mb-6">
+              <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
                 Direito Contratual
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                Elaboração, revisão e negociação de contratos com foco na
-                proteção dos seus interesses e prevenção de conflitos futuros.
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Contratos claros, seguros e alinhados ao seu objetivo. Atuamos na prevenção de conflitos
+                e na correção de riscos para proteger seu patrimônio.
               </p>
-            </motion.div>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button className="bg-primary hover:bg-primary/90" size="lg" asChild>
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Falar no WhatsApp
+                  </a>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <a href="/areas">
+                    Ver todas as áreas <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
         </motion.section>
 
-        {/* Services Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-serif font-bold text-center mb-12">
-                Serviços Contratuais Especializados
-              </h2>
+            <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
+              <Card className="border-0 shadow-xl">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-serif text-foreground">
+                    Serviços mais comuns
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {services.map((s, idx) => (
+                    <div key={idx} className="flex gap-3 items-start">
+                      <CheckCircle2 className="h-5 w-5 text-primary mt-0.5" />
+                      <p className="text-muted-foreground">{s}</p>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-12">
-                {services.map((service, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                    <span className="text-muted-foreground">{service}</span>
-                  </div>
-                ))}
-              </div>
+              <Card className="border-0 shadow-xl bg-secondary/30">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-serif text-foreground">
+                    Foco em prevenção
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3 text-muted-foreground">
+                  <p>• Identificamos cláusulas de risco e pontos abusivos.</p>
+                  <p>• Ajustamos garantias, multas e prazos com estratégia.</p>
+                  <p>• Organizamos documentação e fluxo de assinatura.</p>
+                  <p>• Reduzimos chance de litígio e perda financeira.</p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
 
-        {/* Benefits Section */}
-        <section className="bg-muted/30 py-16">
+        <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-serif font-bold text-center mb-12">
-                Por Que Investir em Contratos Bem Elaborados?
+            <div className="max-w-5xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-8 text-center">
+                Dúvidas frequentes
               </h2>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                {benefits.map((benefit, index) => (
-                  <Card key={index} className="text-center">
+              <div className="grid gap-6">
+                {faqs.map((f, idx) => (
+                  <Card key={idx} className="border-0 shadow-lg">
                     <CardHeader>
-                      <CardTitle className="text-lg">{benefit.title}</CardTitle>
+                      <CardTitle className="text-lg text-foreground">{f.q}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-muted-foreground text-sm">
-                        {benefit.description}
-                      </p>
+                      <p className="text-muted-foreground leading-relaxed">{f.a}</p>
                     </CardContent>
                   </Card>
                 ))}
@@ -114,91 +128,21 @@ const DireitoContratual = () => {
           </div>
         </section>
 
-        {/* Process Section */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-serif font-bold text-center mb-12">
-                Nosso Processo de Trabalho
-              </h2>
-
-              <div className="grid md:grid-cols-4 gap-8">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
-                    1
-                  </div>
-                  <h3 className="font-semibold mb-2">Análise</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Entendemos suas necessidades e objetivos específicos.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
-                    2
-                  </div>
-                  <h3 className="font-semibold mb-2">Elaboração</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Criamos contratos personalizados com cláusulas de proteção.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
-                    3
-                  </div>
-                  <h3 className="font-semibold mb-2">Revisão</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Revisamos junto com você cada cláusula e implicação.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-primary text-primary-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-bold">
-                    4
-                  </div>
-                  <h3 className="font-semibold mb-2">Negociação</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Apoiamos na negociação para garantir os melhores termos.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="bg-muted/30 py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8 lg:p-12">
-                <h3 className="text-3xl font-serif font-bold text-foreground mb-4">
-                  Precisa de Assessoria Contratual?
-                </h3>
-                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Proteja seus interesses com contratos elaborados por
-                  especialistas. Agende uma consulta e evite problemas futuros.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    size="lg"
-                    className="bg-primary hover:bg-primary/90"
-                    asChild
-                  >
-                    <a
-                      href="https://wa.me/556999489259?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20e%20saber%20como%20podemos%20agendar%20uma%20conversa.%20Obrigado%21"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Phone className="mr-2 h-5 w-5" />
-                      Agendar Consulta
-                    </a>
-                  </Button>
-                  <Button size="lg" variant="outline" asChild>
-                    <a href="/#contact">
-                      Fale Conosco
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </a>
-                  </Button>
-                </div>
-              </div>
+            <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
+              <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-3">
+                Quer revisar um contrato antes de assinar?
+              </h3>
+              <p className="text-muted-foreground mb-6">
+                Evite prejuízos. Uma revisão estratégica costuma custar menos do que corrigir um problema depois.
+              </p>
+              <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  Iniciar atendimento
+                </a>
+              </Button>
             </div>
           </div>
         </section>
@@ -206,5 +150,3 @@ const DireitoContratual = () => {
     </div>
   )
 }
-
-export default DireitoContratual

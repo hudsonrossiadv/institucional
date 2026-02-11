@@ -2,14 +2,15 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Scale, Shield, Award } from "lucide-react"
 import Image from "next/image"
 
 /**
- * Banner (Hero) da home.
+ * Componente de banner da página inicial.
  *
- * Mantém a imagem original do projeto (pasta /public/imagessera) e ajusta a
- * proporção/tamanho para ficar consistente com a imagem do "Quem Somos".
+ * Este componente exibe o título do escritório e uma imagem heroica. A imagem foi
+ * ajustada para manter a mesma proporção e largura máxima das fotos utilizadas
+ * na seção "Quem Somos", garantindo harmonia visual entre as seções.
  */
 const Banner = () => {
   return (
@@ -17,7 +18,7 @@ const Banner = () => {
       id="inicio"
       className="relative min-h-screen flex items-center bg-gradient-to-br from-background via-secondary/30 to-background"
     >
-      <div className="absolute inset-0 bg-[url('/imagessera/eu.simples.png')] bg-cover bg-center opacity-5" />
+      <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600')] bg-cover bg-center opacity-5"></div>
 
       <div className="container mx-auto px-4 py-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -43,9 +44,8 @@ const Banner = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Atuação em dois focos principais: <strong>Direito Ambiental & Agrário</strong>
-                (Produtor Rural) e <strong>Defesa em Busca e Apreensão</strong>, com estratégia,
-                agilidade e comunicação clara.
+                Advocacia estratégica, com atuação técnica e responsável na
+                defesa de interesses patrimoniais, civis e empresariais.
               </motion.p>
             </div>
 
@@ -69,29 +69,27 @@ const Banner = () => {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </a>
               </Button>
+              {/* Botão opcional para "Conhecer Escritório", comentado. */}
             </motion.div>
           </motion.div>
 
-          {/* Imagem do hero com proporção consistente */}
+          {/* Imagem hero com largura máxima equivalente à do componente About. */}
           <motion.div
-            className="flex justify-center lg:justify-end"
+            className="relative max-w-sm w-full mx-auto lg:mx-0"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <div className="relative w-full max-w-md">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-card">
-                <Image
-                  src="/imagessera/eu.simples.png"
-                  alt="Hudson Rossi - Advocacia"
-                  width={645}
-                  height={805}
-                  quality={90}
-                  sizes="(max-width: 1024px) 92vw, 440px"
-                  className="w-full h-full object-cover"
-                  priority
-                />
-              </div>
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-card">
+              <Image
+                width={645}
+                height={805}
+                src={
+                  "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600"
+                }
+                alt="Escritório de advocacia profissional"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
         </div>

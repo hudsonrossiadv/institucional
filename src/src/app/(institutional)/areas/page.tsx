@@ -4,11 +4,16 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import {
+  Building,
+  FileText,
+  Handshake,
+  Home,
+  Users,
+  Briefcase,
   ArrowRight,
   CheckCircle,
   Scale,
   Car,
-  Tractor,
 } from "lucide-react"
 
 /**
@@ -19,38 +24,123 @@ import {
  * usado como âncora para navegação, além de um ícone e serviços relacionados.
  */
 const AreasAtuacao = () => {
-  // Página /areas simplificada: apenas os dois nichos principais, conforme solicitado.
   const areas = [
     {
-      id: "ambiental-agrario",
-      icon: Tractor,
-      title: "Ambiental & Agrário (Produtor Rural)",
-      href: "/ambiental-agrario",
+      id: "direito-empresarial",
+      icon: Building,
+      title: "Direito Empresarial",
       description:
-        "Defesa estratégica para produtores rurais em autos de infração, multas e embargos, com foco em preservar a atividade e o patrimônio.",
+        "Consultoria jurídica completa para empresas, incluindo constituição, contratos comerciais, compliance e reestruturações societárias.",
       services: [
-        "Defesa administrativa em auto de infração ambiental",
-        "Anulação/redução de multa ambiental",
-        "Atuação urgente para suspensão/reversão de embargo",
-        "Defesa em execução fiscal ambiental",
-        "Consultoria preventiva para fiscalizações",
-        "Regularização fundiária (caso a caso)",
+        "Constituição de empresas e alterações contratuais",
+        "Contratos comerciais e parcerias estratégicas",
+        "Compliance corporativo e governança",
+        "Fusões, aquisições e reestruturações",
+        "Direito societário e assembleias",
+        "Consultoria preventiva empresarial",
+        "Recuperação judicial e extrajudicial",
+        "Contratos de distribuição e franquia",
+      ],
+    },
+    {
+      id: "direito-contratual",
+      icon: FileText,
+      title: "Direito Contratual",
+      description:
+        "Elaboração, revisão e negociação de contratos, com foco na prevenção de conflitos e proteção dos interesses do cliente.",
+      services: [
+        "Contratos de prestação de serviços",
+        "Contratos de fornecimento e distribuição",
+        "Parcerias comerciais e joint ventures",
+        "Revisão e negociação contratual",
+        "Contratos internacionais",
+        "Análise de riscos contratuais",
+        "Mediação e arbitragem",
+        "Rescisão e renegociação de contratos",
+      ],
+    },
+    {
+      id: "direito-civil",
+      icon: Handshake,
+      title: "Direito Civil",
+      description:
+        "Assessoria completa em questões civis, desde responsabilidade civil até direito de família e sucessões.",
+      services: [
+        "Responsabilidade civil e danos morais",
+        "Direito de família e divórcio",
+        "Sucessões e inventários",
+        "Direito do consumidor",
+        "Contratos civis diversos",
+        "Usucapião e posse",
+        "Direitos da personalidade",
+        "Indenizações e reparações",
+      ],
+    },
+    {
+      id: "direito-imobiliario",
+      icon: Home,
+      title: "Direito Imobiliário",
+      description:
+        "Assessoria em transações imobiliárias, incorporações, locações e questões condominiais.",
+      services: [
+        "Compra e venda de imóveis",
+        "Incorporações imobiliárias",
+        "Locações residenciais e comerciais",
+        "Questões condominiais",
+        "Regularização de imóveis",
+        "Financiamento imobiliário",
+        "Loteamentos e desmembramentos",
+        "Direito urbanístico",
+      ],
+    },
+    {
+      id: "direito-trabalho",
+      icon: Users,
+      title: "Direito do Trabalho",
+      description:
+        "Consultoria preventiva e contenciosa em relações trabalhistas, compliance trabalhista e reestruturações.",
+      services: [
+        "Consultoria preventiva trabalhista",
+        "Compliance trabalhista",
+        "Ações trabalhistas e defesa",
+        "Reestruturações e demissões",
+        "Contratos de trabalho especiais",
+        "Terceirização e quarteirização",
+        "Acordos e negociações coletivas",
+        "Auditoria trabalhista",
+      ],
+    },
+    {
+      id: "direito-tributario",
+      icon: Briefcase,
+      title: "Direito Tributário",
+      description:
+        "Planejamento tributário, consultoria fiscal e defesa em processos administrativos e judiciais.",
+      services: [
+        "Planejamento tributário",
+        "Consultoria fiscal preventiva",
+        "Defesa em processos administrativos",
+        "Contencioso tributário judicial",
+        "Recuperação de tributos pagos indevidamente",
+        "Parcelamento de débitos fiscais",
+        "Elisão e evasão fiscal",
+        "Auditoria tributária",
       ],
     },
     {
       id: "defesa-busca-e-apreensao",
       icon: Car,
       title: "Defesa em Busca e Apreensão",
-      href: "/dba",
       description:
-        "Atuação rápida e técnica em ações de busca e apreensão de veículos, com foco em recuperar o bem e reduzir prejuízos.",
+        "Especializados em defesa contra busca e apreensão de veículos, proporcionando suporte jurídico completo para recuperar seu veículo e renegociar dívidas.",
       services: [
-        "Análise do caso e estratégia imediata",
-        "Defesa em ação de busca e apreensão",
-        "Revisão de contrato e juros abusivos (quando aplicável)",
-        "Negociação e acordo para retomada do veículo",
-        "Medidas urgentes e acompanhamento do processo",
+        "Defesa em busca e apreensão",
+        "Revisão de contratos de financiamento",
+        "Renegociação de dívidas e acordos",
+        "Recuperação imediata do veículo",
       ],
+      // Incluímos a propriedade href para que o botão "Saiba Mais" leve ao caminho /dba
+      href: "/dba",
     },
   ]
 
@@ -115,25 +205,26 @@ const AreasAtuacao = () => {
                         <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                           {area.description}
                         </p>
-                        <Button
-                          size="lg"
-                          className="w-fit bg-primary hover:bg-primary/90"
-                          asChild
-                        >
-                          <a
-                            href={
-                              area.href ??
-                              `/areas/${area.title
-                                .toLowerCase()
-                                .replace(/\s+/g, "-")
-                                .replace("ç", "c")
-                                .replace("ã", "a")}`
-                            }
-                          >
-                            Saiba Mais
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                          </a>
-                        </Button>
+                         <Button
+                           size="lg"
+                           className="w-fit bg-primary hover:bg-primary/90"
+                           asChild
+                         >
+                           <a
+                             href={
+                               // Se a área define um link específico, usa-o; caso contrário, gera o slug baseado no título
+                               area.href ??
+                               `/areas/${area.title
+                                 .toLowerCase()
+                                 .replace(/\s+/g, "-")
+                                 .replace("ç", "c")
+                                 .replace("ã", "a")}`
+                             }
+                           >
+                             Saiba Mais
+                             <ArrowRight className="ml-2 h-5 w-5" />
+                           </a>
+                         </Button>
                       </CardHeader>
 
                       <CardContent className="lg:p-12 bg-muted/30">

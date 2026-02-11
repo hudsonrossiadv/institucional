@@ -3,32 +3,32 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Building2, CheckCircle2, MessageCircle } from "lucide-react"
+import { ArrowRight, CheckCircle2, MessageCircle, Users } from "lucide-react"
 
 const whatsappLink =
-  "https://wa.me/556999489259?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20em%20Direito%20Empresarial.%20Podemos%20conversar%3F"
+  "https://wa.me/556999489259?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20em%20Direito%20do%20Trabalho.%20Podemos%20conversar%3F"
 
-export default function DireitoEmpresarialPage() {
+export default function DireitoTrabalhoPage() {
   const services = [
-    "Constituição/alteração de empresas e regularização",
-    "Contratos comerciais e parcerias",
-    "Cobrança, inadimplemento e renegociação",
-    "Assessoria preventiva e gestão de risco",
-    "Contencioso estratégico para proteção do negócio",
+    "Consultoria preventiva trabalhista (rotina e riscos)",
+    "Defesa e acompanhamento de ações trabalhistas",
+    "Acordos, negociações e auditorias internas",
+    "Orientação sobre jornadas, intervalos e horas extras",
+    "Rescisões, verbas e estratégias para reduzir passivo",
   ]
 
   const faqs = [
     {
-      q: "Quando devo buscar consultoria empresarial?",
-      a: "Antes de assinar contratos, entrar em sociedade, expandir operações ou quando surgirem conflitos com clientes, fornecedores ou sócios.",
+      q: "Vocês atendem empresas e pessoas físicas?",
+      a: "Sim. Atuamos tanto na consultoria preventiva (principalmente para empresas) quanto em demandas individuais, sempre conforme a realidade do caso.",
     },
     {
-      q: "Vocês atendem empresas pequenas e médias?",
-      a: "Sim. Estruturamos soluções práticas e proporcionais à realidade do seu negócio.",
+      q: "Quando buscar orientação trabalhista?",
+      a: "Quando houver risco de passivo, dúvidas sobre procedimentos (jornada, banco de horas, rescisão) ou quando a ação já estiver em andamento.",
     },
     {
       q: "Dá para resolver por acordo?",
-      a: "Sempre avaliamos a via negocial quando ela reduz custo, tempo e risco, sem comprometer a segurança jurídica.",
+      a: "Em muitos casos, sim. Avaliamos o cenário e, quando é vantajoso, estruturamos propostas seguras e juridicamente sustentáveis.",
     },
   ]
 
@@ -44,14 +44,14 @@ export default function DireitoEmpresarialPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center space-y-5">
               <div className="inline-flex items-center justify-center p-3 bg-accent/10 rounded-2xl">
-                <Building2 className="h-10 w-10 text-accent" />
+                <Users className="h-10 w-10 text-accent" />
               </div>
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
-                Direito Empresarial
+                Direito do Trabalho
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Suporte jurídico para proteger a empresa, reduzir riscos e fortalecer decisões
-                com contratos, prevenção e atuação estratégica.
+                Orientação e defesa com foco em segurança jurídica e redução de riscos,
+                tanto para empresas quanto para pessoas físicas.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button className="bg-primary hover:bg-primary/90" size="lg" asChild>
@@ -72,7 +72,7 @@ export default function DireitoEmpresarialPage() {
 
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10">
+            <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
               <Card className="border-0 shadow-xl">
                 <CardHeader>
                   <CardTitle className="text-2xl font-serif text-foreground">
@@ -92,14 +92,14 @@ export default function DireitoEmpresarialPage() {
               <Card className="border-0 shadow-xl bg-secondary/30">
                 <CardHeader>
                   <CardTitle className="text-2xl font-serif text-foreground">
-                    Quando procurar
+                    Boas práticas (prevenção)
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 text-muted-foreground">
-                  <p>• Antes de assinar contratos ou formalizar parcerias.</p>
-                  <p>• Conflitos com clientes, fornecedores ou sócios.</p>
-                  <p>• Cobrança de inadimplentes e renegociação estruturada.</p>
-                  <p>• Organização de rotinas preventivas e compliance.</p>
+                  <p>• Formalização de rotinas e documentos (contratos, recibos, advertências).</p>
+                  <p>• Controle de jornada e intervalos com registros consistentes.</p>
+                  <p>• Adequação de políticas internas e compliance trabalhista.</p>
+                  <p>• Planejamento de rescisões e acordos com segurança.</p>
                 </CardContent>
               </Card>
             </div>
@@ -132,10 +132,10 @@ export default function DireitoEmpresarialPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
               <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-3">
-                Precisa proteger sua empresa com segurança jurídica?
+                Quer orientar seu caso com segurança?
               </h3>
               <p className="text-muted-foreground mb-6">
-                Converse comigo e vamos estruturar o melhor caminho.
+                Me chame no WhatsApp e vamos entender sua situação e os próximos passos.
               </p>
               <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
                 <a href={whatsappLink} target="_blank" rel="noopener noreferrer">

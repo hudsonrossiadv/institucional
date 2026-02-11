@@ -3,32 +3,32 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Building2, CheckCircle2, MessageCircle } from "lucide-react"
+import { ArrowRight, CheckCircle2, Home, MessageCircle } from "lucide-react"
 
 const whatsappLink =
-  "https://wa.me/556999489259?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20em%20Direito%20Empresarial.%20Podemos%20conversar%3F"
+  "https://wa.me/556999489259?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20em%20Direito%20Imobili%C3%A1rio.%20Podemos%20conversar%3F"
 
-export default function DireitoEmpresarialPage() {
+export default function DireitoImobiliarioPage() {
   const services = [
-    "Constituição/alteração de empresas e regularização",
-    "Contratos comerciais e parcerias",
-    "Cobrança, inadimplemento e renegociação",
-    "Assessoria preventiva e gestão de risco",
-    "Contencioso estratégico para proteção do negócio",
+    "Compra e venda de imóveis (análise de risco e documentação)",
+    "Contratos de locação e revisional",
+    "Regularização e diligências jurídicas",
+    "Condomínios e conflitos condominiais",
+    "Medidas urgentes para proteger posse e patrimônio",
   ]
 
   const faqs = [
     {
-      q: "Quando devo buscar consultoria empresarial?",
-      a: "Antes de assinar contratos, entrar em sociedade, expandir operações ou quando surgirem conflitos com clientes, fornecedores ou sócios.",
+      q: "Preciso de advogado para comprar um imóvel?",
+      a: "É altamente recomendado. A análise de documentos, matrícula e riscos evita prejuízos e problemas futuros.",
     },
     {
-      q: "Vocês atendem empresas pequenas e médias?",
-      a: "Sim. Estruturamos soluções práticas e proporcionais à realidade do seu negócio.",
+      q: "O que analisar antes de assinar um contrato?",
+      a: "Cláusulas de prazo, multas, garantias, condições de entrega e responsabilidades. Pequenos detalhes evitam litígios caros.",
     },
     {
-      q: "Dá para resolver por acordo?",
-      a: "Sempre avaliamos a via negocial quando ela reduz custo, tempo e risco, sem comprometer a segurança jurídica.",
+      q: "Dá para resolver conflitos de locação por acordo?",
+      a: "Muitas vezes, sim. Estruturamos notificação, negociação e, se necessário, as medidas judiciais cabíveis.",
     },
   ]
 
@@ -44,14 +44,13 @@ export default function DireitoEmpresarialPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center space-y-5">
               <div className="inline-flex items-center justify-center p-3 bg-accent/10 rounded-2xl">
-                <Building2 className="h-10 w-10 text-accent" />
+                <Home className="h-10 w-10 text-accent" />
               </div>
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
-                Direito Empresarial
+                Direito Imobiliário
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Suporte jurídico para proteger a empresa, reduzir riscos e fortalecer decisões
-                com contratos, prevenção e atuação estratégica.
+                Segurança jurídica em transações imobiliárias, contratos, locações e proteção patrimonial.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button className="bg-primary hover:bg-primary/90" size="lg" asChild>
@@ -72,7 +71,7 @@ export default function DireitoEmpresarialPage() {
 
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10">
+            <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-10 items-start">
               <Card className="border-0 shadow-xl">
                 <CardHeader>
                   <CardTitle className="text-2xl font-serif text-foreground">
@@ -96,10 +95,10 @@ export default function DireitoEmpresarialPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-3 text-muted-foreground">
-                  <p>• Antes de assinar contratos ou formalizar parcerias.</p>
-                  <p>• Conflitos com clientes, fornecedores ou sócios.</p>
-                  <p>• Cobrança de inadimplentes e renegociação estruturada.</p>
-                  <p>• Organização de rotinas preventivas e compliance.</p>
+                  <p>• Compra/venda com risco documental ou dúvidas sobre matrícula.</p>
+                  <p>• Problemas de locação, inadimplência e rescisões.</p>
+                  <p>• Necessidade de notificação, acordo ou medida judicial.</p>
+                  <p>• Conflitos condominiais ou risco patrimonial.</p>
                 </CardContent>
               </Card>
             </div>
@@ -132,10 +131,10 @@ export default function DireitoEmpresarialPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-8">
               <h3 className="text-2xl md:text-3xl font-serif font-bold text-foreground mb-3">
-                Precisa proteger sua empresa com segurança jurídica?
+                Precisa de orientação antes de assinar ou tomar uma decisão?
               </h3>
               <p className="text-muted-foreground mb-6">
-                Converse comigo e vamos estruturar o melhor caminho.
+                Fale comigo no WhatsApp e vamos analisar o melhor caminho.
               </p>
               <Button size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
                 <a href={whatsappLink} target="_blank" rel="noopener noreferrer">

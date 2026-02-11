@@ -1,282 +1,209 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { Award, Users, Clock, Scale, BookOpen, Target } from "lucide-react"
-import joaoSilvaPortrait from "@/assets/joao-silva-portrait.jpg"
 import Image from "next/image"
+import { motion } from "framer-motion"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CheckCircle, MessageCircle, Shield, Leaf, Gavel, ArrowRight } from "lucide-react"
 
-const SaibaMais = () => {
+/**
+ * Página "Saiba Mais"
+ *
+ * - Mantém a foto profissional (IMG_8929) somente aqui.
+ * - Restaura uma estrutura mais rica (cards, diferenciais, prova de atualização, CTA),
+ *   evitando a sensação de página "pobre".
+ */
+export default function SaibaMaisPage() {
+  const whatsappLink =
+    "https://wa.me/556999489259?text=Ol%C3%A1%21%20Quero%20falar%20com%20o%20escrit%C3%B3rio%20HR%20Advocacia.%20Pode%20me%20orientar%3F"
+
   return (
     <div className="min-h-screen">
-      <main className="pt-20">
-        {/* Hero Section */}
-        <motion.section
-          className="bg-gradient-to-b from-background to-gradient-to py-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                  <h1 className="text-4xl font-serif font-bold text-slate-900 dark:text-white mb-6">
-                    Conheça Mais Sobre o
-                    <span className="text-primary block">
-                      Hudson Rossi Advocacia
-                    </span>
-                  </h1>
-                  <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
-                    Escritório jurídico sediado em Ariquemes, Rondônia, que atua
-                    na prestação de serviços jurídicos de forma técnica,
-                    estratégica e personalizada, com foco na segurança jurídica
-                    e proteção patrimonial.
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    <Badge variant="secondary">OAB/RO 14.882</Badge>
-
-                    <Badge variant="secondary">Ariquemes/RO</Badge>
-                  </div>
-                </motion.div>
-                <motion.div
-                  className="relative"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                >
-                  <Image
-                    width={645}
-                    height={805}
-                    src={
-                      "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=600"
-                    }
-                    alt="Escritório de advocacia profissional"
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Formação e Especialização */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-serif font-bold text-center mb-12">
-                Nossa Atuação
-              </h2>
-
-              <div className="grid md:grid-cols-2 gap-8 mb-12">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <BookOpen className="h-5 w-5 text-primary" />
-                      Casos Atendidos
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold">
-                        Defesa Contenciosa Empresarial
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Litígios judiciais e administrativos envolvendo empresas
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">
-                        Fraudes e Golpes Financeiros
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Atuação em casos de transferências indevidas via PIX e
-                        fraudes
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">Defesa Ambiental</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Autos de infração, apreensão de bens e penalidades
-                        administrativas
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      <Award className="h-5 w-5 text-primary" />
-                      Áreas Diversificadas
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div>
-                      <h4 className="font-semibold">Conflitos Patrimoniais</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Questões contratuais, possessórias e de proteção
-                        patrimonial
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">
-                        Demandas Administrativas
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        Atuação perante órgãos públicos e processos
-                        administrativos
-                      </p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold">Consultoria Preventiva</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Análise técnica e estratégia para evitar conflitos
-                        futuros
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Números e Conquistas */}
-        <section className="bg-primary/5 py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-serif font-bold mb-12">
-                Forma de Trabalho
-              </h2>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">
-                    <Scale className="h-12 w-12 mx-auto" />
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Análise Jurídica Criteriosa
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">
-                    <Target className="h-12 w-12 mx-auto" />
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Esclarecimento de Riscos
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">
-                    <BookOpen className="h-12 w-12 mx-auto" />
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Estratégias Compatíveis
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">
-                    <Users className="h-12 w-12 mx-auto" />
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Acompanhamento Responsável
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Filosofia e Valores */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-serif font-bold text-center mb-12">
-                Compromisso Profissional
-              </h2>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                <Card className="text-center">
-                  <CardHeader>
-                    <Scale className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <CardTitle>Ética e Responsabilidade</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Atuar com ética e responsabilidade profissional, mantendo
-                      comunicação clara e acessível com o cliente em todas as
-                      etapas do processo.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="text-center">
-                  <CardHeader>
-                    <Target className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <CardTitle>Defesa Técnica e Séria</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Defender os interesses confiados com seriedade e técnica,
-                      buscando soluções jurídicas consistentes e adequadas à
-                      realidade de cada caso.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="text-center">
-                  <CardHeader>
-                    <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <CardTitle>Atendimento Individualizado</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">
-                      Cada caso é tratado de forma individualizada, respeitando
-                      suas particularidades jurídicas, econômicas e humanas.
-                    </p>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        <section className="bg-slate-900 text-white py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-serif font-bold mb-6">
-              Precisa de Assessoria Jurídica?
-            </h2>
-            <p className="text-lg text-slate-300 mb-8 max-w-2xl mx-auto">
-              Entre em contato para discutir como o Hudson Rossi Advocacia pode
-              ajudar você ou sua empresa com soluções jurídicas técnicas e
-              estratégicas.
-            </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90"
-              asChild
+      {/* HERO */}
+      <section className="pt-20 py-16 bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
             >
-              <a
-                href="https://wa.me/556999489259?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Gostaria%20de%20uma%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica%20e%20saber%20como%20podemos%20agendar%20uma%20conversa.%20Obrigado%21"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Agendar Consulta
-              </a>
-            </Button>
+              <h1 className="text-4xl md:text-5xl font-serif font-bold leading-tight">
+                Saiba mais sobre o escritório
+              </h1>
+
+              <p className="text-primary-foreground/90 text-lg leading-relaxed">
+                O <strong>escritório Hudson Rossi Advocacia</strong> atua com foco em dois nichos
+                principais: <strong>Direito Ambiental & Agrário</strong> (Produtor Rural) e
+                <strong> Defesa em Busca e Apreensão</strong>. Atendimento direto, estratégia e
+                comunicação clara do início ao fim.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
+                  size="lg"
+                  className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                  asChild
+                >
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Falar no WhatsApp
+                  </a>
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="bg-transparent border-primary-foreground/40 !text-primary-foreground hover:bg-primary-foreground/10 hover:!text-primary-foreground"
+                  asChild
+                >
+                  <a href="#diferenciais">Ver diferenciais</a>
+                </Button>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-3 pt-2">
+                <div className="rounded-xl bg-primary-foreground/10 p-4">
+                  <p className="font-semibold">Atendimento direto</p>
+                  <p className="text-sm text-primary-foreground/85 mt-1">
+                    Você fala com o advogado, com clareza de prazos e próximos passos.
+                  </p>
+                </div>
+                <div className="rounded-xl bg-primary-foreground/10 p-4">
+                  <p className="font-semibold">Estratégia + execução</p>
+                  <p className="text-sm text-primary-foreground/85 mt-1">
+                    Planejamento técnico e condução objetiva do caso — administrativo e/ou judicial.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* FOTO PROFISSIONAL (somente aqui) */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.08 }}
+              className="relative w-full max-w-md lg:max-w-lg mx-auto"
+            >
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl bg-card">
+                <Image
+                  src="/images/hudson-rossi.jpg"
+                  alt="Hudson Rossi - HR Advocacia"
+                  width={645}
+                  height={805}
+                  quality={92}
+                  sizes="(max-width: 1024px) 92vw, 520px"
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
+            </motion.div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
+
+      {/* DIFERENCIAIS */}
+      <section id="diferenciais" className="py-16 bg-gradient-to-br from-background to-secondary/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto space-y-8">
+            <div className="text-center">
+              <h2 className="text-4xl font-serif font-bold text-foreground">
+                Diferenciais do escritório
+              </h2>
+              <p className="text-muted-foreground mt-3">
+                Organização, estratégia e comunicação direta — do primeiro atendimento ao encaminhamento final.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              <Card className="border-0 shadow-xl">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Shield className="h-5 w-5 text-accent" />
+                    Atendimento direto
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground">
+                  Você fala comigo, com clareza sobre prazos, riscos e próximos passos — sem enrolação.
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-xl">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Gavel className="h-5 w-5 text-accent" />
+                    Estratégia com execução
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground">
+                  Diagnóstico e plano de ação: organização de documentos, tese defensiva e encaminhamento objetivo.
+                </CardContent>
+              </Card>
+
+              <Card className="border-0 shadow-xl">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Leaf className="h-5 w-5 text-accent" />
+                    Foco em reduzir prejuízos
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="text-muted-foreground">
+                  A meta é proteger seu patrimônio e sua atividade, com comunicação clara e decisões rápidas.
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card className="border-0 shadow-xl">
+              <CardHeader>
+                <CardTitle>Formação e atualização</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3 text-muted-foreground">
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+                  <p>
+                    Participação no{" "}
+                    <a
+                      className="font-semibold underline decoration-primary/40 hover:decoration-primary"
+                      href="https://www.oab-ro.org.br/oab-rondonia-promove-o-1o-seminario-estadual-do-direito-agrario-entre-a-tradicao-e-a-inovacao/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      1º Seminário Estadual do Direito Agrário (OAB Rondônia)
+                    </a>
+                    .
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-primary mt-0.5" />
+                  <p>
+                    Formação complementar em atendimento e atuação em situações urgentes (incluindo defesa em flagrante
+                    delito), aplicando resposta rápida e estratégia também em demandas agrárias e patrimoniais (apreensão e
+                    recuperação de bens).
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <Button size="lg" className="bg-primary hover:bg-primary/90" asChild>
+                <a href="/contato">
+                  Falar com o escritório
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-border text-foreground hover:bg-muted"
+                asChild
+              >
+                <a href="/areas">Ver áreas de atuação</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
   )
 }
-
-export default SaibaMais
