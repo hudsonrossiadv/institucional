@@ -11,14 +11,6 @@ import { MapPin, Phone, Mail, Clock, Send } from "lucide-react"
 
 const DISCORD_WEBHOOK = process.env.NEXT_PUBLIC_DISCORD_WEBHOOK || ""
 
-/**
- * Componente de contato.
- *
- * O formulário de contato envia mensagens através de uma rota interna da API
- * (`/api/contact`), que por sua vez encaminha os dados para o webhook do
- * Discord configurado via variável de ambiente. Isso evita expor a URL do
- * webhook no código cliente.
- */
 const Contact = () => {
   const [form, setForm] = useState({
     nome: "",
